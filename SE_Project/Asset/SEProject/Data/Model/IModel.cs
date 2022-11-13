@@ -11,5 +11,6 @@ namespace SEProject.Data.Model
         public void Set<T>(T o);
 
         public void Check();
+        public void Start(StringParser stringParser);
     }
 }

@@ -31,6 +31,9 @@ namespace SEProject.Data.Model
                 Console.WriteLine(memberInfo.Name);
             }
         }
+        public void Start(StringParser stringParser)
+        {
+        }
 
     }
 }

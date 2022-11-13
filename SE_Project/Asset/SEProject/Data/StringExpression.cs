@@ -31,5 +31,10 @@ namespace SEProject.Data
         {
             model.Check();
         }
+
+        public void Start(StringParser stringParser)
+        {
+            model.Start(stringParser);
+        }
     }
 }

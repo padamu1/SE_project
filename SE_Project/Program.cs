@@ -1,5 +1,6 @@
 ﻿using SEProject;
 using SEProject.Data;
+using System.Diagnostics;
 
 class Program
 {
@@ -8,15 +9,24 @@ class Program
         Console.WriteLine("SE Project Start");
         StringExpression model = new StringExpression();
         model.Set(new User());
-        model.Check();        
 
-        string context = "SetUserName(\"asdf\")";
+        Stopwatch st = new Stopwatch();
+        st.Start();
+        string context = "SetUserName(\"new user\")";
         StringParser stringParser = new StringParser();
         stringParser.Parse(context);
-    }
-    static void ConsoleString(string st)
-    {
-        Console.WriteLine(st);
+        model.Start(stringParser);
+        st.Stop();
+
+        Console.WriteLine("1.경과 시간 : " + st.Elapsed.ToString());
+
+        st = new Stopwatch();
+        st.Start();
+        User user = new User();
+        user.SetUserName("user name");
+
+        st.Stop();
+        Console.WriteLine("2.경과 시간 : " + st.Elapsed.ToString());
     }
 }
 

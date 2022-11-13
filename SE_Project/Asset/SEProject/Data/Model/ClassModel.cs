@@ -28,12 +28,14 @@ namespace SEProject.Data.Model
         {
             MethodInfo? o = _o.GetType().GetMethod("SetUserName");
             Console.WriteLine(o.Name) ;
-            
+        }
+        public void Start(StringParser stringParser)
+        {
+            MethodInfo? o = _o.GetType().GetMethod(stringParser.GetMethodName());
+
             var user = Activator.CreateInstance(o.DeclaringType);
 
-            o.Invoke(user, new object[] { "asd" });
-
-            Console.WriteLine(user.GetType().GetProperty("UserName").GetValue(user, null));
+            o.Invoke(user, stringParser.GetParameters());
         }
     }
 }
