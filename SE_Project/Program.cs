@@ -1,4 +1,5 @@
-﻿using SEProject.Data;
+﻿using SEProject;
+using SEProject.Data;
 
 class Program
 {
@@ -8,10 +9,10 @@ class Program
         StringExpression model = new StringExpression();
         model.Set(new User());
         model.Check();        
-        //Action<string> action = ConsoleString;
-        //model.Set(action);
-        //model.Check();
 
+        string context = "SetUserName(\"asdf\")";
+        StringParser stringParser = new StringParser();
+        stringParser.Parse(context);
     }
     static void ConsoleString(string st)
     {
